@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csvserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csvserver
+  template:
+    metadata:
+      labels:
+        app: csvserver
+    spec:
+      containers:
+        - name: csvserver
+          image: demoserver:1.0
+          ports:
+            - containerPort: 9393
+          env:
+            - name: CSVSERVER_BORDER
+              value: "Orange"  
+          volumeMounts:
+            - name: inputdata-volume
+              mountPath: /csvserver/inputdata
+              subPath: inputFile
+      volumes:
+        - name: inputdata-volume
+          configMap:
+            name: inputdata-config  

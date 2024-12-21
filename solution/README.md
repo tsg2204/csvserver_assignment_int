@@ -1,6 +1,6 @@
-# csvserver-solution
-assignment
-# Solution for Part I
+# csvserver_assignment
+
+# Solution for Part I - attached scrrenshot in Part I Folder
 
 ## Steps executed:
 
@@ -32,20 +32,29 @@ docker rm demoserver
 mkdir "Part I"
 mv gencsv.sh inputdata part-1-cmd part-1-output part-1-logs "Part I/"
 
-# Solution for Part II
+# Solution for Part II -attached scrrenshot in Part II Folder
 1. Deleted any containers from the previous part:
+docker stop demoserver
 docker rm -f demoserver
 
 2. Started Minikube:
 minikube start
 
-3. Created deployment.yaml:
-
-4. Created service.yaml:
-
-5. Created a directory called Part II: 
-    mkdir "Part II"
-    Moved deployment.yaml and service.yaml into the Part II directory:
-    mv deployment.yaml service.yaml "Part II/"
+3. Create the inputdata-config ConfigMap
+kubectl create configmap inputdata-config --from-file=inputFile=inputFile
 
 
+4. Created deployment.yaml:
+
+5. Created service.yaml:
+
+6.  Use environment variable CSVSERVER_BORDER
+
+7. Use environment variable CSVSERVER_BORDER
+
+8. Expose the Deployment - service.yml
+
+9. Verify the Deployment and Service
+kubectl get pods
+kubectl get services
+minikube service csvserver-service
