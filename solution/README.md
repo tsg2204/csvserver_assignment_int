@@ -58,3 +58,12 @@ kubectl create configmap inputdata-config --from-file=inputFile=inputFile
 kubectl get pods
 kubectl get services
 minikube service csvserver-service
+
+# Solution for Part III -attached scrrenshot in Part III Folder
+1. Added Prometheus Pod (prom/prometheus:latest)
+
+2. Apply the YAML configuration to deploy Prometheus
+
+3. Configure Prometheus to Collect Data from Your Application
+
+4. Query in Prometheus
